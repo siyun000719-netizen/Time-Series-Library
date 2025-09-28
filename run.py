@@ -37,6 +37,7 @@ if __name__ == '__main__':
     parser.add_argument('--freq', type=str, default='h',
                         help='freq for time features encoding, options:[s:secondly, t:minutely, h:hourly, d:daily, b:business days, w:weekly, m:monthly], you can also use more detailed freq like 15min or 3h')
     parser.add_argument('--checkpoints', type=str, default='./checkpoints/', help='location of model checkpoints')
+    parser.add_argument('--results_path', type=str, default='/content/drive/MyDrive/pet_output/results', help='폴드별 예측/지표(pred.npy, true.npy, metrics.npy) 저장 경로의 베이스 폴더')
 
     # forecasting task
     parser.add_argument('--seq_len', type=int, default=96, help='input sequence length')
