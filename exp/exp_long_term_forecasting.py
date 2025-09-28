@@ -165,7 +165,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
 
         return self.model
 
-    def test(self, setting, test=0):
+    def test(self, setting, test=0, fold_id=None):
         test_data, test_loader = self._get_data(flag='test')
         if test:
             print('loading model')
@@ -233,8 +233,11 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         print('test shape:', preds.shape, trues.shape)
 
         # result save
-        folder_path = './results/' + setting + '/'
-        if not os.path.exists(folder_path):
+        if fold_id is not None:
+            folder_path = f"/content/drive/MyDrive/pet_output/results/TSMixer_fold{fold_id}"
+        else:
+            folder_path = os.path.join("/content/drive/MyDrive/pet_output/results", setting)
+        if not os.path.exists(folder_path): 
             os.makedirs(folder_path)
 
         # dtw calculation
