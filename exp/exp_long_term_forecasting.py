@@ -233,7 +233,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         print('test shape:', preds.shape, trues.shape)
 
         # result save
-        folder_path = './results/' + setting + '/'
+        folder_path = ' os.path.join("/content/drive/MyDrive/pet_output/results", setting)'
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
 
